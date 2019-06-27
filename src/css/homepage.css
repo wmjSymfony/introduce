@@ -1,0 +1,113 @@
+@import '~antd/dist/antd.css';
+.ant-carousel .slick-slide {
+    text-align: center;
+    overflow: hidden;
+    color: white;
+}
+.ant-carousel .slick-vertical .slick-slide{
+    border: none!important;
+    height: 100vh; /*heigiht：100vh必须有。不然会出现几个像素的滚动条*/
+}
+.ant-carousel .slick-slide .first-page{
+    background-image: url(../img/firstpagebg.jpg);
+    height: 100vh;
+}
+.ant-carousel .slick-slide .second-page{
+    background-color: rgb(75, 191, 195);
+    height: 100vh;
+}
+.ant-carousel .slick-slide .third-page{
+    background-color: rgb(193, 198, 187);
+    height: 100vh;
+}
+.ant-carousel .slick-slide h3{
+    color: white;
+}
+.ant-carousel-vertical .slick-dots li.slick-active button {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #5affab;
+}
+.ant-carousel-vertical .slick-dots li button {
+    border: 1px solid #5affab;
+    background: transparent;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+.ant-carousel-vertical .slick-dots li {
+    margin: 0 -4px;
+}
+.self-link{
+    display: inline-block;
+    border-radius: 50%;
+    -webkit-box-shadow: 0 0 0.3rem 0.03rem #1ea0e1;
+    box-shadow: 0.2rem 0.2rem 0.3rem 0.03rem #1ea0e1;
+}
+.self-carousel-content{
+    position: absolute;
+    width: 100%;
+    display: none;
+}
+
+/*.col-xs-* 超小屏幕 手机 (<768px)*/
+@media screen and (max-width: 768px) {
+    .ant-carousel .slick-slide h3{
+        font-size: 1.5rem;
+        margin: 0;
+    }
+    .ant-carousel .slick-slide  p{
+        font-size: 1rem;
+        margin: 0;
+    }
+    .self-carousel-content{
+        top: 45%;
+    }
+    #page-third-content{
+        top:35%;
+    }
+}
+/*.col-sm-* 小屏幕 平板 (≥768px)*/
+@media screen and (max-width: 992px) and (min-width: 768px){
+    .ant-carousel .slick-slide h3{
+        font-size: 2rem;
+        margin: 0;
+    }
+    .ant-carousel .slick-slide p{
+        font-size: 1.5rem;
+        margin: 0;
+    }
+    .self-carousel-content{
+        top: 44%;
+    }
+}
+/*.col-md-* 中等屏幕 桌面显示器 (≥992px)*/
+@media screen and (max-width: 1200px) and (min-width: 992px) {
+    .ant-carousel .slick-slide h3{
+        font-size: 2.5rem;
+        margin: 0;
+    }
+    .ant-carousel .slick-slide p{
+        font-size: 2rem;
+        margin: 0;
+    }
+    .self-carousel-content{
+        top: 43%;
+    }
+}
+/*.col-lg-* 大屏幕 大桌面显示器 (≥1200px)*/
+@media screen and (min-width: 1200px){
+    .ant-carousel .slick-slide h3{
+        font-size: 3rem;
+        margin: 0;
+    }
+    .ant-carousel .slick-slide p{
+        font-size: 2rem;
+        margin: 0;
+    }
+    .self-carousel-content{
+        top: 42%;
+    }
+}
+
