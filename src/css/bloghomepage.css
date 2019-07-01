@@ -1,0 +1,46 @@
+@import '~antd/dist/antd.css';
+.paper-layout{
+    border:1px solid #fbd1d1;
+    margin: 1rem;
+    overflow: hidden;
+}
+.paper-footer-readmore{
+    border-radius: 30px;
+}
+.paper-header-words{
+    color: grey;
+    padding-left: 0.2rem;
+}
+.paper-title{
+    width: 100%;
+    margin: 0.5rem 0;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.paper-header{
+    margin-bottom: 0.5rem;
+}
+.paper-content{
+    margin: 0.5rem 0;
+}
+.paper-footer{
+    margin: 0.5rem 0;
+}
+.paper-sider-img{
+    height: auto;
+    width: 100%;
+}
+.paper-sider-words{
+    text-align: justify;
+    font-size: 1.15rem;
+    height: 12rem;
+    overflow: hidden;
+}
+.paper-title{
+    color: #337ab7;
+    font-size: 2rem;
+}
+.paper-footer-readmore{
+    font-size: 1rem;
+}

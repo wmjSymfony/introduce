@@ -1,4 +1,4 @@
-@import '~antd/dist/antd.css';
+/*@import '~antd/dist/antd.css';*/
 .ant-carousel .slick-slide {
     text-align: center;
     overflow: hidden;
@@ -23,32 +23,45 @@
 .ant-carousel .slick-slide h3{
     color: white;
 }
+
 .ant-carousel-vertical .slick-dots li.slick-active button {
     width: 10px;
     height: 10px;
     border-radius: 50%;
-    background: #5affab;
+
 }
+
 .ant-carousel-vertical .slick-dots li button {
-    border: 1px solid #5affab;
     background: transparent;
     width: 10px;
     height: 10px;
     border-radius: 50%;
 }
-.ant-carousel-vertical .slick-dots li {
+.ant-carousel-vertical  .slick-dots li {
     margin: 0 -4px;
 }
+.ant-carousel-vertical .page-deep-color .slick-dots li.slick-active button{
+    background: #5affab;
+}
+.ant-carousel-vertical .page-deep-color .slick-dots li button{
+    border: 1px solid #5affab;
+}
+.ant-carousel-vertical .page-light-color .slick-dots li.slick-active button{
+    background: black;
+}
+.ant-carousel-vertical .page-light-color .slick-dots li button{
+    border: 1px solid black;
+}
+
 .self-link{
     display: inline-block;
     border-radius: 50%;
     -webkit-box-shadow: 0 0 0.3rem 0.03rem #1ea0e1;
     box-shadow: 0.2rem 0.2rem 0.3rem 0.03rem #1ea0e1;
 }
-.self-carousel-content{
+#page-first-content ,#page-second-content ,#page-third-content{
     position: absolute;
     width: 100%;
-    display: none;
 }
 
 /*.col-xs-* 超小屏幕 手机 (<768px)*/
@@ -61,7 +74,7 @@
         font-size: 1rem;
         margin: 0;
     }
-    .self-carousel-content{
+    #page-first-content ,#page-second-content {
         top: 45%;
     }
     #page-third-content{
@@ -78,7 +91,7 @@
         font-size: 1.5rem;
         margin: 0;
     }
-    .self-carousel-content{
+    #page-first-content ,#page-second-content ,#page-third-content{
         top: 44%;
     }
 }
@@ -92,7 +105,7 @@
         font-size: 2rem;
         margin: 0;
     }
-    .self-carousel-content{
+    #page-first-content ,#page-second-content ,#page-third-content{
         top: 43%;
     }
 }
@@ -106,7 +119,7 @@
         font-size: 2rem;
         margin: 0;
     }
-    .self-carousel-content{
+    #page-first-content ,#page-second-content ,#page-third-content{
         top: 42%;
     }
 }

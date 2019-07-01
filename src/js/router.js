@@ -1,15 +1,19 @@
 import React from 'react';
-import { HashRouter as Router,Route} from 'react-router-dom';
+import {HashRouter as Router, Route} from 'react-router-dom';
 import PositionCarousel from '../js/homepage.js';
 import Bloghomepage from '../js/blog/bloghomepage.js';
+import Blogtype from '../js/blog/blogtype.js'
 
-function Myrouter() {
-  return (
-      <Router>
-          <Route exact path="/" component={PositionCarousel} />
-          <Route path="/wmjblog" component={Bloghomepage} />
-      </Router>
-  );
+function App() {
+    return (
+        <Router>
+            <div>
+                <Route exact path="/" component={PositionCarousel}/>
+                <Route path="/wmjblog" component={Bloghomepage}/>
+                <Route path="/blogtype" component={Blogtype}/>
+            </div>
+        </Router>
+    );
 }
 
-export default Myrouter;
+export default App;

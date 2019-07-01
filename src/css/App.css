@@ -1,32 +1,24 @@
-.App {
-  text-align: center;
-}
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/*.col-xs-* 超小屏幕 手机 (<768px)*/
+@media screen and (max-width: 768px) {
+  html{
+    font-size: 8px;
   }
-  to {
-    transform: rotate(360deg);
+}
+/*.col-sm-* 小屏幕 平板 (≥768px)*/
+@media screen and (max-width: 992px) and (min-width: 768px){
+  html{
+    font-size: 11px;
+  }
+}
+/*.col-md-* 中等屏幕 桌面显示器 (≥992px)*/
+@media screen and (max-width: 1200px) and (min-width: 992px) {
+  html{
+    font-size: 13px;
+  }
+}
+/*.col-lg-* 大屏幕 大桌面显示器 (≥1200px)*/
+@media screen and (min-width: 1200px){
+  html{
+    font-size: 16px;
   }
 }
