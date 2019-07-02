@@ -14,8 +14,8 @@ import bootstrap from '../img/bootstrap.jpg';
 import javascript from '../img/javascript.png';
 import {Carousel, Row, Col} from "antd";
 import QueueAnim from 'rc-queue-anim';
-// import Texty from 'rc-texty';
-// import 'rc-texty/assets/index.css';
+import Texty from 'rc-texty';
+import 'rc-texty/assets/index.css';
 
 // let wheelDelta = 0;//表示上下滚动大于零向上滚动，小于零向下滚动
 // function throttle(func, wait = 500) {
@@ -37,7 +37,14 @@ import QueueAnim from 'rc-queue-anim';
 class PositionCarousel extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {pageColor: 'page-deep-color', firstpage: true, secondpage: false, thirdpage: false};
+        this.state = {
+            pageColor: 'page-deep-color',
+            firstpage: true,
+            secondpage: false,
+            thirdpage: false,
+            firstY: 0,
+            endY: 0,
+        };
         this.next = this.next.bind(this);
         this.previous = this.previous.bind(this);
     }
@@ -61,6 +68,30 @@ class PositionCarousel extends React.Component {
             if (e.nativeEvent.wheelDelta < 0) { //当滑轮向下滚动时
                 this.next();
             }
+        }
+    };
+
+    //第二个页面文字退场
+    getEnter = () => {
+        return {
+            delay: 0,
+            opacity: 0
+        };
+    };
+
+    NavonTouchStart = (e) => {
+        this.setState({
+            firstY: e.targetTouches[0].clientY,
+        })
+    };
+
+    NavonTouchMove = (e) => {
+        this.setState({
+            endY: e.changedTouches[0].clientY,
+        });
+        let moveY = this.state.endY - this.state.firstY;
+        if (Math.abs(moveY) > 100) {
+            moveY > 0 ? this.next() : this.previous();
         }
     };
 
@@ -98,8 +129,6 @@ class PositionCarousel extends React.Component {
                             thirdpage: true,
                             pageColor: 'page-light-color'
                         });
-                    default:
-
                 }
             }
         };
@@ -117,7 +146,8 @@ class PositionCarousel extends React.Component {
             <Carousel type="flex" justify="center" align="middle" {...settings}
                       ref={(c) => (this.slider = c)}>
                 <Row onClick={this.onClick} className="first-page" justify="center" align="middle"
-                     onWheel={this.handleScroll}>
+                     onWheel={this.handleScroll} onTouchStart={this.NavonTouchStart.bind(this)}
+                     onTouchMove={this.NavonTouchMove.bind(this)}>
                     <Row id="page-first-content" className="self-carousel-content" justify="center" type="flex">
                         <QueueAnim delay={200} className="queue-simple">
                             {this.state.firstpage ? [
@@ -149,25 +179,27 @@ class PositionCarousel extends React.Component {
                         </QueueAnim>
                     </Row>
                 </Row>
-                <Row className="second-page" justify="center" align="middle" onWheel={this.handleScroll}>
+                <Row className="second-page" justify="center" align="middle" onWheel={this.handleScroll}
+                     onTouchStart={this.NavonTouchStart.bind(this)} onTouchMove={this.NavonTouchMove.bind(this)}>
                     <Row id="page-second-content" className="self-carousel-content" justify="center" type="flex">
                         <Col span={24} style={{color: 'white'}}>
-                            {/*<p>Committed to front-end development</p>*/}
-                            {/*<p style={{margin: '1rem 0'}}>like front-end technology</p>*/}
-                            {/*<p>Also know a little about the back-end development</p>*/}
-                            {/*<div className="texty-demo">*/}
-                            {/*<Texty>{this.state.secondpage && 'Committed to front-end development'}</Texty>*/}
-                            {/*</div>*/}
-                            {/*<div className="texty-demo" style={{margin: '1rem 0'}}>*/}
-                            {/*<Texty>{this.state.secondpage && 'like front-end technology'}</Texty>*/}
-                            {/*</div>*/}
-                            {/*<div className="texty-demo">*/}
-                            {/*<Texty>{this.state.secondpage && 'Also know a little about the back-end development'}</Texty>*/}
-                            {/*</div>*/}
+                            <p className="texty-demo">
+                                <Texty
+                                    leave={this.getEnter}>{this.state.secondpage && 'Committed to front-end development'}</Texty>
+                            </p>
+                            <p className="texty-demo" style={{margin: '1rem 0'}}>
+                                <Texty
+                                    leave={this.getEnter}>{this.state.secondpage && 'like front-end technology'}</Texty>
+                            </p>
+                            <p className="texty-demo">
+                                <Texty
+                                    leave={this.getEnter}>{this.state.secondpage && 'Also know the back-end development'}</Texty>
+                            </p>
                         </Col>
                     </Row>
                 </Row>
-                <Row className="third-page" onWheel={this.handleScroll}>
+                <Row className="third-page" onWheel={this.handleScroll} onTouchStart={this.NavonTouchStart.bind(this)}
+                     onTouchMove={this.NavonTouchMove.bind(this)}>
                     <Row id="page-third-content" className="self-carousel-content" style={{display: 'block'}}
                          justify="center" type="flex">
                         <QueueAnim delay={300} className="queue-simple" animConfig={[
