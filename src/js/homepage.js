@@ -1,6 +1,7 @@
 import React from "react";
 import {Link} from 'react-router-dom';
 import '../css/homepage.css';
+import blog from '../img/blog.png';
 import github from '../img/github.png';
 import html5 from '../img/h5.png';
 import jquery from '../img/jquery.png';
@@ -144,7 +145,7 @@ class PositionCarousel extends React.Component {
         }];
         return (
             <Carousel type="flex" justify="center" align="middle" {...settings}
-                      ref={(c) => (this.slider = c)}>
+                      ref={(c) => (this.slider = c)} id="test">
                 <Row onClick={this.onClick} className="first-page" justify="center" align="middle"
                      onWheel={this.handleScroll} onTouchStart={this.NavonTouchStart.bind(this)}
                      onTouchMove={this.NavonTouchMove.bind(this)}>
@@ -167,12 +168,14 @@ class PositionCarousel extends React.Component {
                             {this.state.firstpage ? [
                                 <Row type="flex" key="c" justify="center" align="middle">
                                     <Col span={6} justify="center">
-                                        <Link className="self-link" to="/wmjblog"><img src={github}/></Link>
+                                        <Link className="self-link" to="/wmjblog" title="我的博客" target="_blank"><img src={blog}/></Link>
+                                        <div>我的博客</div>
                                     </Col>
                                     <Col span={6}>
-                                        <a className="self-link" href="https://github.com/wmjSymfony" target="_blank">
+                                        <a className="self-link" href="https://github.com/wmjSymfony" title="我的GitHub" target="_blank">
                                             <img src={github}/>
                                         </a>
+                                        <div>我的GitHub</div>
                                     </Col>
                                 </Row>
                             ] : null}
