@@ -11,7 +11,7 @@ class PaperDetail extends React.Component {
 
     componentDidMount() {
         let dataIndex = this.props.match.params.id;
-        fetch('/data/paperSource.json', {
+        fetch(process.env.PUBLIC_URL+'/data/paperSource.json', {
             method: "GET",
             headers: {
                 'Content-Type': 'application/json',

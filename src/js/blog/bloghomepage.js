@@ -27,7 +27,7 @@ class Bloghomepage extends React.Component {
     getData=()=> {
         let nowPage = this.state.page - 1;
         let pageSize = this.state.pageSize;
-        fetch('/data/paperSource.json', {
+        fetch(process.env.PUBLIC_URL+'/data/paperSource.json', {
             method: "GET",
             headers: {
                 'Content-Type': 'application/json',
