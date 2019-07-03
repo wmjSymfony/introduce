@@ -12,6 +12,6 @@
     "author": "WangMengjia",
     "date": "2019-06-15",
     "type": "git pages",
-    "img":"./image/20190703/1562141708138885.png",
+    "img":"./image/20190703/1562161733189339.png",
     "content": "<p><strong>记录自己部署静态页面到git pages上遇到的问题，引入jquery bootstrap等框架时404错误</strong></p>可以通过新建一个空文件夹，起名叫.nojekyll。&nbsp;&nbsp;push到远程仓库之后，就可以访问到这些资源啦！！"
   }]
