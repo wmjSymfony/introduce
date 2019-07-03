@@ -37,11 +37,8 @@
     height: auto;
     width: 100%;
 }
-.paper-sider-words:hover{
-    height: auto;
-    font-size: 1.2rem;
-}
 .paper-sider-words{
+    min-height: 8rem;
     text-align: justify;
     font-size: 1.15rem;
     overflow: hidden;
@@ -55,7 +52,7 @@
 }
 
 /*.col-sm-* 小屏幕 平板 (≥768px)*/
-@media screen and (max-width: 992px) and (min-width: 768px){
+@media screen and (max-width: 992px){
     .ant-pagination-item {
         height: 2.8rem;
         line-height: 2.8rem;
@@ -65,6 +62,9 @@
         height: 2.8rem;
         line-height: 2.8rem;
         width: 2.8rem;
+    }
+    .paper-detail-body  span{
+        font-size: 1rem !important;
     }
 }
 /*.col-md-* 中等屏幕 桌面显示器 (≥992px)*/
@@ -80,4 +80,17 @@
         line-height: 3rem;
         width: 3rem;
     }
+    .paper-detail-body  span{
+        font-size: 1.5rem !important;
+    }
+}
+.paper-detail-body section{
+    background-color: white;
+    margin-top: 2rem;
+}
+.paper-detail-body img{
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
 }
