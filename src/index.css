@@ -13,9 +13,7 @@ code {
 }
 html{
   -webkit-overflow-scrolling : touch;
-  position: fixed;
-  /*overflow: hidden;*/
-  overflow: auto;     /* winphone8和android4+ */
-  /*-webkit-overflow-scrolling: touch;    !* ios5+ *!*/
+  /*position: fixed;*/
+  overflow: auto;
   height: 100vh;
 }
