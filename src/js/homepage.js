@@ -18,23 +18,6 @@ import QueueAnim from 'rc-queue-anim';
 import Texty from 'rc-texty';
 import 'rc-texty/assets/index.css';
 
-// let wheelDelta = 0;//表示上下滚动大于零向上滚动，小于零向下滚动
-// function throttle(func, wait = 500) {
-//     let previous = 0;
-//     return function () {
-//         let context = this;
-//         let args = arguments;
-//         let now = Date.now();
-//
-//         if (now - previous > wait) {
-//             console.log(window.event);
-//             wheelDelta = window.event.wheelDelta || window.event.detail;
-//             func.call(context, args);
-//             previous = now;
-//         }
-//     }
-// }
-
 class PositionCarousel extends React.Component {
     constructor(props) {
         super(props);
@@ -168,11 +151,13 @@ class PositionCarousel extends React.Component {
                             {this.state.firstpage ? [
                                 <Row type="flex" key="c" justify="center" align="middle">
                                     <Col span={6} justify="center">
-                                        <Link className="self-link" to="/wmjblog" title="我的博客" target="_blank"><img src={blog}/></Link>
+                                        <Link className="self-link" to={{ pathname: '/wmjblog' }} title="我的博客" target="_blank"><img
+                                            src={blog}/></Link>
                                         <div>我的博客</div>
                                     </Col>
                                     <Col span={6}>
-                                        <a className="self-link" href="https://github.com/wmjSymfony" title="我的GitHub" target="_blank">
+                                        <a className="self-link" href="https://github.com/wmjSymfony" title="我的GitHub"
+                                           target="_blank">
                                             <img src={github}/>
                                         </a>
                                         <div>我的GitHub</div>

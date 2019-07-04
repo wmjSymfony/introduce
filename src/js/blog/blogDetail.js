@@ -4,7 +4,7 @@ import Blogheader from './blogHeader.js';
 import '../../css/bloghomepage.css';
 const {Content,} = Layout;
 
-class PaperDetail extends React.Component {
+class blogDetail extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -15,7 +15,7 @@ class PaperDetail extends React.Component {
 
     componentDidMount() {
         let dataIndex = this.props.match.params.id;
-        fetch(process.env.PUBLIC_URL + '/data/paperSource.json', {
+        fetch(process.env.PUBLIC_URL + '/data/blogSource.json', {
             method: "GET",
             headers: {
                 'Content-Type': 'application/json',
@@ -24,11 +24,15 @@ class PaperDetail extends React.Component {
         })
             .then(response => response.json())
             .then(result => {
-                this.setState({
-                    data: result[dataIndex]
+                result.forEach((val) => {
+                   if(val.id == dataIndex){
+                       this.setState({
+                           data: val
+                       });
+                   }
                 });
             });
-        fetch(process.env.PUBLIC_URL + '/data/paperDetail.json', {
+        fetch(process.env.PUBLIC_URL + '/data/blogDetail.json', {
             method: "GET",
             headers: {
                 'Content-Type': 'application/json',
@@ -37,8 +41,12 @@ class PaperDetail extends React.Component {
         })
             .then(response => response.json())
             .then(result => {
-                this.setState({
-                    detail: result[dataIndex].detail
+                result.forEach((val) => {
+                    if(val.id == dataIndex){
+                        this.setState({
+                            detail: val.detail
+                        });
+                    }
                 });
             });
     }
@@ -47,9 +55,8 @@ class PaperDetail extends React.Component {
         const data = this.state.data;
         const detail = this.state.detail;
         return (
-            <Layout>
-                <Blogheader/>
                 <Layout>
+                    <Blogheader selected={[]}/>
                     <Content style={{padding: '0.2rem', margin: 0, minHeight: 280}}>
                         <Row type='flex' align='middle' justify='center' className='paper-body paper-detail-body'>
                             <Col lg={18} md={19} sm={20} xs={22} className='paper-layout' style={{boxShadow: "none"}}>
@@ -76,11 +83,10 @@ class PaperDetail extends React.Component {
                         </Row>
                     </Content>
                 </Layout>
-            </Layout>
         )
 
     }
 }
 
 
-export default PaperDetail;
+export default blogDetail;

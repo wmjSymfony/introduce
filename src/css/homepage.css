@@ -9,7 +9,7 @@
     height: 100vh; /*heigiht：100vh必须有。不然会出现几个像素的滚动条*/
 }
 .ant-carousel .slick-slide .first-page{
-    background-image: url(../img/firstpagebg.jpg);
+    background-image: url(../img/materialplanet.png);
     height: 100vh;
 }
 .ant-carousel .slick-slide .second-page{
