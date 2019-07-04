@@ -64,7 +64,7 @@ class Blogtype extends React.Component {
                 <Blogheader selected={['2']}/>
                 <Content style={{padding: '0.2rem', margin: '1rem'}}>
                     <Row type="flex" align="middle" justify="center">
-                        <Col lg={18} md={19} sm={20} xs={22}>
+                        <Col lg={16} md={18} sm={20} xs={22}>
                             <div>
                                 <List style={{backgroundColor: 'white'}} className='detail-type-list'
                                       size="large"

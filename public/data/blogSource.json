@@ -9,15 +9,6 @@
     "content": "<p><strong>记录自己部署React项目到git pages上的过程以及错误处理和注意事项&nbsp;</strong></p>1.将自己可以运行的React push到一个只有master分支的仓库里&nbsp;&nbsp;2.修改package.json文件&nbsp;&nbsp;3.npm install gh-pages --save-dev 安装gh-pages工具&nbsp;&nbsp;4.npm run deploy 部署&nbsp;&nbsp;"
   },
   {
-    "id":"2",
-    "title": "React项目部署在git pages上",
-    "author": "WangMengjia",
-    "date": "2019-06-20",
-    "type": "React",
-    "img":"./image/20190703/1562141708138885.png",
-    "content": "<p><strong>记录自己部署React项目到git pages上的过程以及错误处理和注意事项&nbsp;</strong></p>1.将自己可以运行的React push到一个只有master分支的仓库里&nbsp;&nbsp;2.修改package.json文件&nbsp;&nbsp;3.npm install gh-pages --save-dev 安装gh-pages工具&nbsp;&nbsp;4.npm run deploy 部署&nbsp;&nbsp;"
-  },
-  {
     "id":"3",
     "title": "git pages上的个人页面怎么引用jquery bootstrap等框架",
     "author": "WangMengjia",

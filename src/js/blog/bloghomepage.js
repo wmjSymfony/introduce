@@ -128,52 +128,55 @@ class Bloghomepage extends React.Component {
                 <Blogheader selected={this.state.selected}/>
                 <Layout>
                     <Content style={{padding: '0.2rem', margin: 0}}>
-                        { dataSource.map((data, index) => {
-                                return (
-                                    <Row key={index} type='flex' align='middle' justify='center' className='paper-body'>
-                                        <Col lg={18} md={19} sm={20} xs={22} className='paper-layout'>
-                                            <Row type='flex' align='middle' justify='space-between' className='paper-title'>
-                                                {data.title}
-                                            </Row>
-                                            <Row type='flex' align='middle' justify='space-between'
-                                                 className='paper-header'>
-                                                <Col><Icon type="user"/>
-                                                    <label className='paper-header-words'>{data.author}</label>
-                                                </Col>
-                                                <Col><Icon className='paper-header-words' type="calendar"/>
-                                                    <label className='paper-header-words'>{data.date}</label>
-                                                </Col>
-                                                <Col><Icon className='paper-header-words' type="tag"/>
-                                                    <label className='paper-header-words'>{data.type}</label>
-                                                </Col>
-                                            </Row>
-                                            <Row type='flex' align='top' justify='space-between'
-                                                 className='paper-content'>
-                                                <Col span={4}>
-                                                    <img onClick={() => {
+                        <Row>
+                            { dataSource.map((data, index) => {
+                                    return (
+                                        <Row key={index} type='flex' align='middle' justify='center' className='paper-body'>
+                                            <Col lg={18} md={19} sm={20} xs={22} className='paper-layout'>
+                                                <Row type='flex' align='middle' justify='space-between'
+                                                     className='paper-title'>
+                                                    {data.title}
+                                                </Row>
+                                                <Row type='flex' align='middle' justify='space-between'
+                                                     className='paper-header'>
+                                                    <Col><Icon type="user"/>
+                                                        <label className='paper-header-words'>{data.author}</label>
+                                                    </Col>
+                                                    <Col><Icon className='paper-header-words' type="calendar"/>
+                                                        <label className='paper-header-words'>{data.date}</label>
+                                                    </Col>
+                                                    <Col><Icon className='paper-header-words' type="tag"/>
+                                                        <label className='paper-header-words'>{data.type}</label>
+                                                    </Col>
+                                                </Row>
+                                                <Row type='flex' align='top' justify='space-between'
+                                                     className='paper-content'>
+                                                    <Col span={4}>
+                                                        <img onClick={() => {
+                                                            this.blogDetail(data.id)
+                                                        }} src={data.img} className='paper-sider-img'/>
+                                                    </Col>
+                                                    <Col span={16} offset={4} type='flex' align='bottom'
+                                                         className='paper-sider-words'
+                                                         dangerouslySetInnerHTML={{__html: data.content}}>
+                                                    </Col>
+                                                </Row>
+                                                <Row type='flex' align='middle' justify='end' className='paper-footer'>
+                                                    <Button onClick={() => {
                                                         this.blogDetail(data.id)
-                                                    }} src={data.img} className='paper-sider-img'/>
-                                                </Col>
-                                                <Col span={16} offset={4} type='flex' align='bottom'
-                                                     className='paper-sider-words'
-                                                     dangerouslySetInnerHTML={{__html: data.content}}>
-                                                </Col>
-                                            </Row>
-                                            <Row type='flex' align='middle' justify='end' className='paper-footer'>
-                                                <Button onClick={() => {
-                                                    this.blogDetail(data.id)
-                                                }}
-                                                        type="primary" shape="round" size={buttonSize}>
-                                                    阅读全文
-                                                </Button>
-                                            </Row>
-                                        </Col>
-                                    </Row>
-                                )
-                            }
-                        )}
-                        <Row type='flex' align='middle' justify='center'
-                             style={{margin: '2rem 0'}}><Pagination {...pagination} /></Row>
+                                                    }}
+                                                            type="primary" shape="round" size={buttonSize}>
+                                                        阅读全文
+                                                    </Button>
+                                                </Row>
+                                            </Col>
+                                        </Row>
+                                    )
+                                }
+                            )}
+                            <Row type='flex' align='middle' justify='center'
+                                 style={{margin: '2rem 0'}}><Pagination {...pagination} /></Row>
+                        </Row>
                     </Content>
                 </Layout>
             </Layout>
