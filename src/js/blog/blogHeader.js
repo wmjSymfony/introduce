@@ -19,8 +19,8 @@ class Blogheader extends React.Component {
                         style={{lineHeight: '64px'}}
                     >
                         <Menu.Item key="1"><Link to="/wmjblog">首页</Link></Menu.Item>
-                        <Menu.Item key="2"><Link to="/Blogtype">文章分类</Link></Menu.Item>
-                        <Menu.Item key="3"><Link to="/About">关于</Link></Menu.Item>
+                        <Menu.Item key="2"><Link to="/blogtype">文章分类</Link></Menu.Item>
+                        <Menu.Item key="3"><Link to="/about">关于</Link></Menu.Item>
                     </Menu>
                 </Header>
         )

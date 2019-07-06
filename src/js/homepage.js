@@ -2,7 +2,7 @@ import React from "react";
 import {Link} from 'react-router-dom';
 import '../css/homepage.css';
 import blog from '../img/blog.png';
-import github from '../img/github.png';
+import github from '../img/github.svg';
 import html5 from '../img/h5.png';
 import jquery from '../img/jquery.png';
 import css3 from '../img/css3.png';
@@ -151,16 +151,23 @@ class PositionCarousel extends React.Component {
                             {this.state.firstpage ? [
                                 <Row type="flex" key="c" justify="center" align="middle">
                                     <Col span={6} justify="center">
-                                        <Link className="self-link" to={{ pathname: '/wmjblog' }} title="我的博客" target="_blank"><img
+                                        <Link className="self-link" to={{ pathname: '/wmjblog' }} title="My Blog" target="_blank"><img
                                             src={blog}/></Link>
                                         <div>我的博客</div>
                                     </Col>
                                     <Col span={6}>
-                                        <a className="self-link" href="https://github.com/wmjSymfony" title="我的GitHub"
+                                        <a className="self-link" href="https://github.com/wmjSymfony" title="My GitHub"
                                            target="_blank">
                                             <img src={github}/>
                                         </a>
                                         <div>我的GitHub</div>
+                                    </Col>
+                                    <Col span={6}>
+                                        <Link className="self-link" to={{ pathname: '/liveGame' }} title="LifeGame"
+                                           target="_blank">
+                                            <img src={reactlogo}/>
+                                        </Link>
+                                        <div>React小游戏</div>
                                     </Col>
                                 </Row>
                             ] : null}
@@ -171,18 +178,18 @@ class PositionCarousel extends React.Component {
                      onTouchStart={this.NavonTouchStart.bind(this)} onTouchMove={this.NavonTouchMove.bind(this)}>
                     <Row id="page-second-content" className="self-carousel-content" justify="center" type="flex">
                         <Col span={24} style={{color: 'white'}}>
-                            <p className="texty-demo">
+                            <div className="texty-demo">
                                 <Texty
                                     leave={this.getEnter}>{this.state.secondpage && 'Committed to front-end development'}</Texty>
-                            </p>
-                            <p className="texty-demo" style={{margin: '1rem 0'}}>
+                            </div>
+                            <div className="texty-demo" style={{margin: '1rem 0'}}>
                                 <Texty
                                     leave={this.getEnter}>{this.state.secondpage && 'like front-end technology'}</Texty>
-                            </p>
-                            <p className="texty-demo">
+                            </div>
+                            <div className="texty-demo">
                                 <Texty
                                     leave={this.getEnter}>{this.state.secondpage && 'Also know the back-end development'}</Texty>
-                            </p>
+                            </div>
                         </Col>
                     </Row>
                 </Row>
@@ -198,10 +205,12 @@ class PositionCarousel extends React.Component {
                                 <p key="a" style={{margin: '1rem'}}>以下就是我的技能标签啦</p>
                             ] : null}
                             {this.state.thirdpage ? [
-                                <Row key="b" justify="center" type="flex">
+                                <Row key="b"  justify="center" type="flex">
+                                    <Col lg={15} md={18} sm={20} xs={22}  justify="center" align="middle" type="flex">
+                                        <Row justify="center" align="middle" type="flex">
                                     {
-                                        skillArr.map((item) => (
-                                            <Col lg={2} md={3} sm={4} xs={6} justify="center" align="middle">
+                                        skillArr.map((item,index) => (
+                                            <Col key={index} lg={3} md={4} sm={4} xs={6} justify="center" align="middle">
                                                 <Row justify="center" align="middle" style={{margin: "0.3rem"}}>
                                                     <img src={item.src} style={{width: '30px', height: '30px'}}/>
                                                 </Row>
@@ -211,6 +220,8 @@ class PositionCarousel extends React.Component {
                                             </Col>
                                         ))
                                     }
+                                        </Row>
+                                    </Col>
                                 </Row>
                             ] : null}
                         </QueueAnim>

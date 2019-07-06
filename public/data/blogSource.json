@@ -3,7 +3,7 @@
     "id":"1",
     "title": "怎么把自己的React项目部署在git pages上",
     "author": "WangMengjia",
-    "date": "2019-06-20",
+    "date": "2019-07-03",
     "type": "React",
     "img":"./image/20190703/1562141708138885.png",
     "content": "<p><strong>记录自己部署React项目到git pages上的过程以及错误处理和注意事项&nbsp;</strong></p>1.将自己可以运行的React push到一个只有master分支的仓库里&nbsp;&nbsp;2.修改package.json文件&nbsp;&nbsp;3.npm install gh-pages --save-dev 安装gh-pages工具&nbsp;&nbsp;4.npm run deploy 部署&nbsp;&nbsp;"
@@ -12,9 +12,27 @@
     "id":"3",
     "title": "git pages上的个人页面怎么引用jquery bootstrap等框架",
     "author": "WangMengjia",
-    "date": "2019-06-15",
+    "date": "2019-07-03",
     "type": "git pages",
     "img":"./image/20190703/1562161733189339.png",
     "content": "<p><strong>记录自己部署静态页面到git pages上遇到的问题，引入jquery bootstrap等框架时404错误</strong></p>可以通过新建一个空文件夹，起名叫.nojekyll。&nbsp;&nbsp;push到远程仓库之后，就可以访问到这些资源啦！！"
+  },
+  {
+    "id":"4",
+    "title": "两个页面之间如果通信一",
+    "author": "WangMengjia",
+    "date": "2019-07-06",
+    "type": "javascript",
+    "img":"./image/20190705/sendmessage.png",
+    "content": "<p><strong>记录自己一直记不住的知识点</strong></p>希望通过blog的方式帮助自己记住两个页面的通信方式！"
+  },
+  {
+    "id":"5",
+    "title": "两个页面之间如果通信二",
+    "author": "WangMengjia",
+    "date": "2019-07-06",
+    "type": "javascript",
+    "img":"./image/20190705/sendmessage.png",
+    "content": "<p><strong>记录自己一直记不住的知识点</strong></p>希望通过blog的方式帮助自己记住两个页面的通信方式！"
   }
 ]

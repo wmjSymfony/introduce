@@ -1,0 +1,13 @@
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<head>
+    <script type="text/javascript">
+		function change(){
+			window.opener.document.body.innerHTML = '子页面也能操作父页面!';
+		}
+    </script>
+</head>
+<body>
+	<button onclick="change()">change  parent  content</button>
+</body>
+</html>

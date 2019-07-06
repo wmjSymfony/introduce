@@ -1,26 +1,38 @@
 @import '~antd/dist/antd.css';
+
 .ant-carousel .slick-slide {
     text-align: center;
     overflow: hidden;
     color: white;
 }
-.ant-carousel .slick-vertical .slick-slide{
-    border: none!important;
+
+.ant-carousel .slick-vertical .slick-slide {
+    border: none !important;
     height: 100vh; /*heigiht：100vh必须有。不然会出现几个像素的滚动条*/
 }
-.ant-carousel .slick-slide .first-page{
+
+.ant-carousel .slick-slide .first-page {
     background-image: url(../img/materialplanet.png);
     height: 100vh;
 }
-.ant-carousel .slick-slide .second-page{
-    background-color: rgb(75, 191, 195);
+
+.ant-carousel .slick-slide .second-page {
+    background: -webkit-linear-gradient( 45deg, rgb(78, 159, 222) 0%, rgb(9, 71, 185)); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(45deg, rgb(78, 159, 222) 0%, rgb(9, 71, 185)); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(45deg, rgb(78, 159, 222) 0%, rgb(9, 71, 185)); /* Firefox 3.6 - 15 */
+    background: linear-gradient(45deg, rgb(78, 159, 222) 0%, rgb(9, 71, 185)); /* 标准的语法（必须放在最后） */
     height: 100vh;
 }
-.ant-carousel .slick-slide .third-page{
-    background-color: rgb(193, 198, 187);
+
+.ant-carousel .slick-slide .third-page {
+    background: -webkit-linear-gradient( 45deg, rgb(200, 205, 184) 0%, rgb(242, 246, 226)); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(45deg, rgb(200, 205, 184) 0%, rgb(242, 246, 226)); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(45deg, rgb(200, 205, 184) 0%, rgb(242, 246, 226)); /* Firefox 3.6 - 15 */
+    background: linear-gradient(45deg, rgb(200, 205, 184) 0%, rgb(242, 246, 226)); /* 标准的语法（必须放在最后） */
     height: 100vh;
 }
-.ant-carousel .slick-slide h3{
+
+.ant-carousel .slick-slide h3 {
     color: white;
 }
 
@@ -28,7 +40,6 @@
     width: 10px;
     height: 10px;
     border-radius: 50%;
-
 }
 
 .ant-carousel-vertical .slick-dots li button {
@@ -38,66 +49,93 @@
     border-radius: 50%;
 }
 
-.ant-carousel-vertical  .slick-dots li {
+.ant-carousel-vertical .slick-dots li {
     margin: 0 -4px;
 }
-.ant-carousel-vertical .page-deep-color .slick-dots li.slick-active button{
+
+.ant-carousel-vertical .page-deep-color .slick-dots li.slick-active button {
     background: #5affab;
 }
-.ant-carousel-vertical .page-deep-color .slick-dots li button{
+
+.ant-carousel-vertical .page-deep-color .slick-dots li button {
     border: 1px solid #5affab;
 }
-.ant-carousel-vertical .page-light-color .slick-dots li.slick-active button{
+
+.ant-carousel-vertical .page-light-color .slick-dots li.slick-active button {
     background: black;
 }
-.ant-carousel-vertical .page-light-color .slick-dots li button{
+
+.ant-carousel-vertical .page-light-color .slick-dots li button {
     border: 1px solid black;
 }
 
-.self-link{
+.self-link {
     display: inline-block;
     border-radius: 50%;
     -webkit-box-shadow: 0 0 0.3rem 0.03rem #1ea0e1;
     box-shadow: 0.2rem 0.2rem 0.3rem 0.03rem #1ea0e1;
 }
-#page-first-content ,#page-second-content ,#page-third-content{
+
+.self-link img {
+    width: 32px;
+    height: 32px;
+}
+
+#page-first-content, #page-second-content, #page-third-content {
     position: absolute;
     width: 100%;
 }
-.ant-carousel .slick-slide h3{
+
+#page-third-content{
+    color:black;
+}
+
+.ant-carousel .slick-slide h3 {
     font-size: 3rem;
     margin: 0;
 }
-.ant-carousel .slick-slide p{
+
+.ant-carousel .slick-slide p {
     font-size: 2rem;
     margin: 0;
 }
 
-
+#page-second-content div {
+    font-size: 2rem;
+    margin: 0;
+}
 /*.col-xs-* 超小屏幕 手机 (<768px)*/
 @media screen and (max-width: 768px) {
-    #page-first-content ,#page-second-content {
-        top: 45%;
+    #page-first-content {
+        top: 40%;
     }
-    #page-third-content{
-        top:35%;
+
+    #page-second-content {
+        top: 45%
+    }
+
+    #page-third-content {
+        top: 35%;
     }
 }
+
 /*.col-sm-* 小屏幕 平板 (≥768px)*/
-@media screen and (max-width: 992px) and (min-width: 768px){
-    #page-first-content ,#page-second-content ,#page-third-content{
+@media screen and (max-width: 992px) and (min-width: 768px) {
+    #page-first-content, #page-second-content, #page-third-content {
         top: 44%;
     }
 }
+
 /*.col-md-* 中等屏幕 桌面显示器 (≥992px)*/
 @media screen and (max-width: 1200px) and (min-width: 992px) {
-    #page-first-content ,#page-second-content ,#page-third-content{
+    #page-first-content, #page-second-content, #page-third-content {
         top: 43%;
     }
 }
+
 /*.col-lg-* 大屏幕 大桌面显示器 (≥1200px)*/
-@media screen and (min-width: 1200px){
-    #page-first-content ,#page-second-content ,#page-third-content{
+@media screen and (min-width: 1200px) {
+    #page-first-content, #page-second-content, #page-third-content {
         top: 42%;
     }
 }

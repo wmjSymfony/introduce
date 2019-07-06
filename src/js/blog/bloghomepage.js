@@ -1,7 +1,8 @@
 import React from "react";
 import {Route} from 'react-router-dom';
 import Blogheader from './blogHeader.js';
-import {Layout, Icon, Row, Col, Button, Pagination} from 'antd';
+// import ButtonChangeSize from '../buttonChangeSize.js'
+import {Layout, Icon, Row, Col, Pagination,Button} from 'antd';
 import '../../css/bloghomepage.css';
 import '../../css/App.css';
 const {Content,} = Layout;
@@ -12,7 +13,6 @@ class Bloghomepage extends React.Component {
         super(props);//props是分类页面点分类列表引用这个组件dataPaperIndex=[1,2]/[1]
         this.state = {
             selected: this.props.selected != undefined ? this.props.selected : ['1'],
-            buttonSize: "default",
             total: 0,//json数据总条数
             page: 1,//当前页码
             pageSize: 3,//一页的总条数
@@ -21,46 +21,9 @@ class Bloghomepage extends React.Component {
         };
     }
 
-    //节流函数
-    throttle = (func, wait = 500) => {
-        let previous = 0;
-        return function () {
-            let context = this;
-            let args = arguments;
-            let now = Date.now();
-
-            if (now - previous > wait) {
-                func.call(context, args);
-                previous = now;
-            }
-        }
-    };
-
     componentDidMount() {
         this.getData();
-        window.addEventListener('resize', this.throttle(this.handleResize.bind(this)));
     }
-
-    componentWillUnmount() { //一定要最后移除监听器，以防多个组件之间导致this的指向紊乱
-        window.removeEventListener('resize', this.handleResize.bind(this))
-    }
-
-    handleResize = (e) => {
-        //需要一个节流函数
-        if (e[0].target.innerWidth < 768) {
-            this.setState({
-                buttonSize: 'small'
-            });
-        } else if (e[0].target.innerWidth < 1200 && e[0].target.innerWidth >= 768) {
-            this.setState({
-                buttonSize: 'default'
-            });
-        } else {
-            this.setState({
-                buttonSize: 'large'
-            });
-        }
-    };
 
     //获取列表。如果父组件传dataPaperIndex，按照这个内容查找相关type内容。如果没有传找全部
     getData = () => {
@@ -116,7 +79,6 @@ class Bloghomepage extends React.Component {
 
     render() {
         const dataSource = this.state.data;
-        const buttonSize = this.state.buttonSize;
         const pagination = {
             current: this.state.page,
             pageSize: this.state.pageSize,
@@ -162,12 +124,7 @@ class Bloghomepage extends React.Component {
                                                     </Col>
                                                 </Row>
                                                 <Row type='flex' align='middle' justify='end' className='paper-footer'>
-                                                    <Button onClick={() => {
-                                                        this.blogDetail(data.id)
-                                                    }}
-                                                            type="primary" shape="round" size={buttonSize}>
-                                                        阅读全文
-                                                    </Button>
+                                                    <Button type="primary" size="small" style={{borderRadius:'50px'}} onClick={() => this.blogDetail((data.id))}>阅读全文</Button>
                                                 </Row>
                                             </Col>
                                         </Row>
