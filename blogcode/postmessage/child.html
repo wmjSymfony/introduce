@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<html>
+<head>
+	<script>
+		//接收父传过来的数据
+		window.addEventListener('message',function(event){
+			 document.body.innerHTML += event.data;
+		})
+		
+		//给父传递消息
+		function sendMessageToParent(){
+			var messageContent = document.getElementById("message-child").value;
+			parent.postMessage(messageContent,'*');
+		}
+	</script>
+</head>
+<body>
+	我是孩子
+	<input type="text" id="message-child"/>
+	<input type="button" id="send-message" onclick=sendMessageToParent()>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<head>
+    <script type="text/javascript">
+        function say(){
+            alert("child2.html");
+        }
+		//子页面调用兄弟
+        function callBr0(){
+			//parent.frames['myChild1'].say();//调用父框架的myChild1的子框架
+			top.frames['myChild1'].say();//调用最外层框架的myChild1的子框架
+        }
+		//子页面调用父页面
+		function callparent(){
+			top.say();
+			///top.say();//调用最外层框架
+        }
+    </script>
+</head>
+<body style="background-color:red">
+    <input id="button" type="button" value="callchild1" onclick="callBr0()"/>
+	<input id="button" type="button" value="callparent" onclick="callparent()"/>
+</body>
+</html>

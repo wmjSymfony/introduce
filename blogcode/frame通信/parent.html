@@ -1,0 +1,18 @@
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<head>
+    <script type="text/javascript">
+		function say(){
+			alert('i am parent');
+		}
+		//父框架调用子/孙子框架
+		function load(){
+			frames['myChild1'].say();
+		}
+    </script>
+</head>
+<frameset cols="50%,50%" onload="load()">
+    <frame name="myChild1" src="child1.html"/>
+	<frame name="myChild2" src="child2.html"/>
+</frameset>
+</html>
