@@ -21,7 +21,7 @@ class Bloghomepage extends React.Component {
         };
     }
 
-    componentDidMount() {
+    componentWillMount() {
         this.getData();
     }
 

@@ -13,7 +13,7 @@ class blogDetail extends React.Component {
         };
     }
 
-    componentDidMount() {
+    componentWillMount() {
         let dataIndex = this.props.match.params.id;
         fetch(process.env.PUBLIC_URL + '/data/blogSource.json', {
             method: "GET",

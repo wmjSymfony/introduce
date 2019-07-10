@@ -13,7 +13,7 @@ class Blogtype extends React.Component {
         this.clickList = this.clickList.bind(this);
     }
 
-    componentDidMount() {
+    componentWillMount() {
         this.getData();
     }
 

@@ -1,8 +1,32 @@
-.live-game-header{
+.live-game-header {
     font-size: 3rem;
     text-align: center;
 }
-.ant-btn{
+
+.ant-btn {
     margin: 0.5rem;
     border-radius: 10px;
+}
+table {
+    border: solid gray;
+    border-width: 1px 0 0 1px;
+}
+
+td {
+    border: solid gray;
+    border-width: 0 1px 1px 0;
+    width: 20px;
+    height: 20px;
+}
+
+.live-td {
+    background-color: #5affab;
+}
+@media screen and (max-width: 768px) {
+    .ant-btn {
+        margin: 0.15rem;
+    }
+    .change-cell-size{
+        margin: 0.3rem;
+    }
 }
