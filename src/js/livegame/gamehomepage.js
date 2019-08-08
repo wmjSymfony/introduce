@@ -1,5 +1,5 @@
 import React from 'react';
-import {Layout, Row, Col, Button, Input, Slider, Select, Table} from 'antd';
+import {Layout, Row, Col, Button, Input, Slider, Select} from 'antd';
 import {LifeGameTable} from './createGameTable.js';
 import '../../css/livegame.css';
 const {Content} = Layout;
@@ -24,6 +24,7 @@ class LiveGame extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            tableInitState: 1,
             sliderDisabled: false,
             width: 20,
             height: 20,
@@ -73,16 +74,16 @@ class LiveGame extends React.Component {
         this.setState({table: this.state.tableClass.getRandomView()});
     };
 
-    //改变表格大小，改变后默认置空表
+    //改变表格大小，改变后默认置空表,清除定时器
     changeCellSize = () => {
-        console.log(1);
-        let width = parseInt(this.refs.cellWidth.state.value,10);
-        let height = parseInt(this.refs.cellHeight.state.value,10);
+        let width = parseInt(this.refs.cellWidth.state.value, 10);
+        let height = parseInt(this.refs.cellHeight.state.value, 10);
         this.setState({
             width: width,
             height: height
-        },() => {
+        }, () => {
             let game = new LifeGameTable(this.state.width, this.state.height);
+            this.pause();
             this.setState({tableClass: game, table: game.getEmptyView()});
         });
     };
@@ -92,11 +93,55 @@ class LiveGame extends React.Component {
         this.setState({
             speed: value
         });
-        if(this.state.timer){
+        if (this.state.timer) {
             this.pause();
             this.start();
-        }else{
+        } else {
             this.pause();
+        }
+    };
+
+    //改变单元格的生存状态
+    changeCellState = (x, y) => {
+        let curCell = this.state.table[x][y];
+        if (curCell.state === 0) {
+            curCell.state = 1;
+        } else {
+            curCell.state = 0;
+        }
+        let table = this.state.table;
+        table[x][y] = curCell;
+        this.setState({table: table});
+    };
+
+    //改变表格初始状态
+    changeTableInitState = (value) => {
+        console.log(value);
+        if (value != this.state.tableInitState) {
+            this.setState({tableInitState: value});
+            //得到一个新的空表格，清空计时器，然后改变表格个别位置的状态
+            this.pause();
+            let table = this.state.tableClass.getEmptyView();
+            let midwidth = Math.floor(this.state.width / 2) - 1;
+            let midheight = Math.floor(this.state.height / 2) - 1;
+            let stateArr = [];
+            if (value == 3) {
+                stateArr = [[1, 1, 1], [1, 1, 1], [1, 1, 1]];
+                for (let i = -1; i < 2; i++) {
+                    for (let j = -1; j < 2; j++) {
+                        table[midwidth + i][midheight + j].state = stateArr[i + 1][j + 1];
+                    }
+                }
+                this.setState({table: table});
+            } else if (value == 2) {
+                stateArr = [[0, 1, 0], [0, 0, 1], [1, 1, 1]];
+                for (let i = -1; i < 2; i++) {
+                    for (let j = -1; j < 2; j++) {
+                        table[midwidth + i][midheight + j].state = stateArr[i + 1][j + 1];
+                    }
+                }
+                this.setState({table: table});
+            }
         }
     };
 
@@ -119,23 +164,22 @@ class LiveGame extends React.Component {
                             <Row type='flex' align='middle' justify='center' style={{margin: '10px 0 17px 0'}}>
                                 <div>初始游戏状态设定：</div>
                                 <Select
-                                    value={'状态一'}
+                                    defaultValue={'自定义状态'}
                                     size='small'
                                     style={{width: '40%'}}
-                                    // onChange={this.handleCurrencyChange}
+                                    onChange={this.changeTableInitState}
                                 >
-                                    <Option value="1">状态一</Option>
+                                    <Option value="1">自定义状态</Option>
                                     <Option value="2">状态二</Option>
+                                    <Option value="3">状态三</Option>
                                 </Select>
                             </Row>
                             <Row type='flex' align='middle' justify='center'>
                                 <Col lg={8} md={10} sm={10} xs={8}>
-                                    <Input ref="cellWidth" type='number' onChange={this.changeCellWidth}
-                                           placeholder="网格宽度"/>
+                                    <Input ref="cellWidth" type='number' placeholder="网格宽度"/>
                                 </Col>
                                 <Col lg={8} md={10} sm={10} xs={8} style={{marginLeft: '10px'}}>
-                                    <Input ref="cellHeight" type='number' onChange={this.changeCellHeight}
-                                           placeholder="网格高度"/>
+                                    <Input ref="cellHeight" type='number' placeholder="网格高度"/>
                                 </Col>
                                 <Button size="small" className='change-cell-size'
                                         onClick={this.changeCellSize}>submit</Button>
@@ -160,7 +204,8 @@ class LiveGame extends React.Component {
                                                 {data.map((cell, cellindex) => {
                                                     let liveState = (cell.state == 1) ? 'live-td' : 'dead-td';
                                                     return (
-                                                        <td key={cellindex} className={liveState}>
+                                                        <td key={cellindex} className={liveState}
+                                                            onClick={() => this.changeCellState(tableindex, cellindex)}>
                                                         </td>
                                                     )
                                                 })}
