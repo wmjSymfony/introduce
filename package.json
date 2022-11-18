@@ -12,7 +12,7 @@
     "react-addons-css-transition-group": "^15.6.2",
     "react-dom": "^16.8.6",
     "react-router-dom": "^5.0.1",
-    "react-scripts": "3.0.1",
+    "react-scripts": "5.0.1",
     "react-slick": "^0.24.0"
   },
   "scripts": {
